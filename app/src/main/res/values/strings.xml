@@ -10,5 +10,6 @@
     <string name="error_occurred">Error occurred</string>
     <string name="drink_name">drink name</string>
     <string name="descriptions">descrpiption here....</string>
+    <string name="alcohol">Alcohol</string>
     />
 </resources>
