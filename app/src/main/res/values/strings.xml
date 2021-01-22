@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Drinks Recipes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="favourite">favourites</string>
+    <string name="by_name">By Name</string>
+    <string name="by_first_alphabet">By First Alphabet</string>
+    <string name="no_internet">No internet</string>
+    <string name="error_occurred">Error occurred</string>
+    <string name="drink_name">drink name</string>
+    <string name="descriptions">descrpiption here....</string>
+    />
+</resources>
