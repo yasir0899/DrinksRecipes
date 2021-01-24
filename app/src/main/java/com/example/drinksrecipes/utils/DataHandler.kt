@@ -1,4 +1,4 @@
-package com.example.providerportal.utils
+package com.example.drinksrecipes.utils
 
 import android.content.Context
 import org.json.JSONArray

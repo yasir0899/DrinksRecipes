@@ -3,9 +3,9 @@
 import android.content.Context
 import android.util.Log
 import com.example.drinksrecipes.R
-import com.example.providerportal.utils.HttpStatusCodes
+import com.example.drinksrecipes.utils.HttpStatusCodes
 import com.example.providerportal.utils.InternetConnectionUtil
-import com.example.providerportal.utils.ToastUtil
+import com.example.drinksrecipes.utils.ToastUtil
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback

@@ -16,6 +16,17 @@ class RestApiClient {
     companion object {
 
 
+        private val retrofitWithHeaders: ApisList by lazy {
+            val okHttpClientBuild = OkHttpClient().newBuilder()
+            okHttpClientBuild.connectTimeout(60, TimeUnit.SECONDS).readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS).addInterceptor(httpLoggingInterceptor()).retryOnConnectionFailure(true)
+           // okHttpClientBuild.addInterceptor(getHeaderInterceptor())
+          //  okHttpClientBuild .authenticator(TokenAuthenticator())
+            val okHttpClient = okHttpClientBuild.build()
+
+            Retrofit.Builder().baseUrl(BuildConfig.API_BASE_URL).client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create()).build().create(ApisList::class.java)
+        }
         private val retrofitWithOutHeaders: ApisList by lazy {
             val okHttpClientBuild = OkHttpClient().newBuilder()
             okHttpClientBuild.connectTimeout(60, TimeUnit.SECONDS).readTimeout(60, TimeUnit.SECONDS)
@@ -28,12 +39,18 @@ class RestApiClient {
 
 
 
-        fun httpLoggingInterceptor(): HttpLoggingInterceptor {
+        private fun httpLoggingInterceptor(): HttpLoggingInterceptor {
             val interceptor = HttpLoggingInterceptor(HttpLogger())
             interceptor.level = HttpLoggingInterceptor.Level.BODY
             return interceptor
         }
 
-
+        fun getClient(addHeaders: Boolean): ApisList {
+            return if (addHeaders) {
+                retrofitWithHeaders
+            } else {
+                retrofitWithOutHeaders
+            }
+        }
     }
 }

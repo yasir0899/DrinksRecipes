@@ -1,12 +1,15 @@
-package com.example.providerportal.utils
+package com.example.drinksrecipes.utils
 
 import android.app.Activity
+import android.content.Context
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import com.example.drinksrecipes.utils.AppController
 import java.text.NumberFormat
 import java.util.*
 import java.util.regex.Pattern
@@ -54,5 +57,13 @@ class AppUtils {
             val LANGUAGE = "en"
             return NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(number)
         }
+    }
+
+
+
+
+    fun hideKeyboard(view: View) {
+        val inputMethodManager = AppController.ApplicationContext.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

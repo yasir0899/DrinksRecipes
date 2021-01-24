@@ -11,5 +11,7 @@
     <string name="drink_name">drink name</string>
     <string name="descriptions">descrpiption here....</string>
     <string name="alcohol">Alcohol</string>
+    <string name="favourite_recipie">Favorite Recipes</string>
+    <string name="alcoholic">Alcoholic</string>
     />
 </resources>

@@ -1,4 +1,4 @@
-package com.example.providerportal.utils
+package com.example.drinksrecipes.utils
 
 class HttpStatusCodes {
 

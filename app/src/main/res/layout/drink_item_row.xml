@@ -7,11 +7,11 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
+        android:id="@+id/ivDrink"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:src="@drawable/avatar"
         app:civ_circle_background_color="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tvDesc"
@@ -24,65 +24,68 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:ellipsize="end"
+        android:singleLine="true"
         android:text="@string/drink_name"
         android:textColor="@color/black"
         android:textSize="@dimen/text_view_size_18sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/circleImageView"
+        app:layout_constraintEnd_toStartOf="@+id/ivFav"
+        app:layout_constraintStart_toEndOf="@+id/ivDrink"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:ellipsize="end"
+        android:singleLine="true"
         android:text="@string/descriptions"
         android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitle"
         app:layout_constraintStart_toStartOf="@+id/tvTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:id="@+id/ivFav"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:src="@drawable/ic_baseline_star_outline_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvDesc"
-        app:layout_constraintTop_toTopOf="@+id/tvTitle"
-        tools:layout_editor_absoluteX="301dp" />
+        app:layout_constraintEnd_toStartOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="47dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/alcohol"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/materialCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="@string/alcohol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+
+    <CheckBox
+        android:id="@+id/cbAlcohol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDesc"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <View
         android:layout_width="0dp"
         android:layout_height="1dp"
+        android:layout_marginTop="16dp"
         android:background="@color/line_color"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/circleImageView"
-        app:layout_constraintTop_toBottomOf="@+id/materialCheckBox" />
+        app:layout_constraintStart_toStartOf="@+id/ivDrink"
+        app:layout_constraintTop_toBottomOf="@+id/cbAlcohol" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

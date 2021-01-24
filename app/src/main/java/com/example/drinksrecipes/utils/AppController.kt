@@ -1,7 +1,8 @@
-package com.example.providerportal.utils
+package com.example.drinksrecipes.utils
 
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDexApplication
 
 
@@ -16,6 +17,7 @@ class AppController : MultiDexApplication() {
         super.onCreate()
         //initialize on app level here
         ApplicationContext = this
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
       //  DataHandler()
 
 
