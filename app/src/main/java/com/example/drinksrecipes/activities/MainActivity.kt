@@ -18,7 +18,6 @@ import com.example.providerportal.utils.InternetConnectionUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
-
 class MainActivity : AppCompatActivity() {
     private val drinksVM by lazy {
         ViewModelProvider(this).get(DrinksVM::class.java)
