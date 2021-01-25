@@ -147,6 +147,7 @@ class HomeFragment : Fragment(), RecyclerViewItemClickListener {
 
                     if (it is ErrorDto) {
 
+                        ToastUtil.showLongToast(requireContext(),it.message)
 
                     }
                 }

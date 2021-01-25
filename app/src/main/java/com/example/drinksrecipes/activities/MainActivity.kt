@@ -48,13 +48,12 @@ class MainActivity : AppCompatActivity() {
                         myAlarm(item)
                     }
                 } else {
-                    myAlarm(DrinksTableModel("", "Need some drinks open", "", "", "test"))
+                    myAlarm(DrinksTableModel("", "Need some drinks open app now", "", "", "test"))
                 }
             })
         } else {
 
-            //calling
-            myAlarm(DrinksTableModel("", "Need some drinks open", "", "", "test"))
+            myAlarm(DrinksTableModel("", "Need some drinks open app now", "", "", "test"))
         }
 
     }

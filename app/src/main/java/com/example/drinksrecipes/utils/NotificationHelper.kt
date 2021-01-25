@@ -11,6 +11,7 @@ import android.provider.Settings
 import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
+import com.bumptech.glide.Glide
 import com.example.drinksrecipes.R
 import com.example.drinksrecipes.activities.MainActivity
 
@@ -33,22 +34,23 @@ internal class NotificationHelper(context: Context) {
         val contentView =
             RemoteViews(AppController.ApplicationContext.packageName, R.layout.notification_layout)
         contentView.setImageViewResource(R.id.image, R.mipmap.ic_launcher);
-       /* if (img == "test") {
+        if (img == "test") {
             contentView.setImageViewResource(R.id.image, R.mipmap.ic_launcher);
         } else {
-            contentView.setBitmap(
+            contentView.setImageViewBitmap(
                 R.id.image,
-                "loadBitmap",
+
                 InternalStorageProvider(mContext).loadBitmap(img.toString())
             )
-        }*/
+
+        }
         contentView.setTextViewText(R.id.textView, "Alcohol")
         //contentView.setBoolean(R.id.cbAlcohol, "",false)
         if (title?.isNotEmpty() != null) {
             contentView.setTextViewText(R.id.tvTitle, title)
             contentView.setTextViewText(R.id.tvDesc, desc)
         } else {
-            contentView.setTextViewText(R.id.tvTitle, "Need some drinks open")
+            contentView.setTextViewText(R.id.tvTitle, "Need some drinks open app now")
             contentView.setTextViewText(R.id.tvDesc, "")
         }
         val mBuilder =

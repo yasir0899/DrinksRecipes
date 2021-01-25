@@ -1,11 +1,11 @@
- package com.example.drinksrecipes.restAPI
+package com.example.drinksrecipes.restAPI
 
 import android.content.Context
 import android.util.Log
 import com.example.drinksrecipes.R
 import com.example.drinksrecipes.utils.HttpStatusCodes
-import com.example.providerportal.utils.InternetConnectionUtil
 import com.example.drinksrecipes.utils.ToastUtil
+import com.example.providerportal.utils.InternetConnectionUtil
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,32 +38,15 @@ abstract class RetrofitApiManager<T>(private val mContext: Context) : Callback<T
                     responseSuccess(response.body())
                 }
 
-                response.code() == HttpStatusCodes.SC_NO_CONTENT -> {
-                    responseSuccess(response.body())
-                }
-                response.code() == HttpStatusCodes.SC_UNAUTHORIZED -> {
 
-                    responseFailure(ErrorDto(response.message(), response.code()))
+                else -> {
+                    responseFailure(ErrorDto(mContext.getString(R.string.error_occurred), response.code()))
                 }
 
-                response.code() == HttpStatusCodes.SC_BAD_REQUEST -> {
-                    /*responseFailure(ErrorDto(response.message(),HttpStatusCodes.SC_BAD_REQUEST))*/
-                }
-                /*else -> responseFailure(ErrorDto((response.body() as GenericResponseModel<*>).responseMessage ?: mContext.getString(R.string.error_occurred), (response.body() as GenericResponseModel<*>).status ?: response.code()))*/
             }
-        } else if (response.code() == HttpStatusCodes.SC_UNAUTHORIZED) {
-           /* errorBody = response.errorBody()?.string()
-            jsonObj = JSONObject(errorBody)
-            if (jsonObj?.has("statusCode")!!) {
-                val statusCode = jsonObj?.getString("statusCode")!!.toInt()
-                // DataHandler.updatePreferences(AppConstants.SP_EMAIL_VERIFY_STATUS_CODE,statusCode)
-            }*/
-
-
-            responseFailure(ErrorDto(response.message(), response.code()))
         } else {
-            responseFailure(ErrorDto(response.message(), response.code()))
-            /*responseFailure(ErrorDto(mContext.getString(R.string.error_occurred), response.code()))*/
+            responseFailure(ErrorDto(mContext.getString(R.string.error_occurred), response.code()))
+
         }
     }
 

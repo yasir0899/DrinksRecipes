@@ -11,7 +11,7 @@ interface ApisList {
 
     @GET("search.php?")
     fun getDrinks(
-        @QueryMap s: HashMap<String, String>
+        @QueryMap map: HashMap<String, String>
     ): Call<GetDrinksResponseModel>
 
 
